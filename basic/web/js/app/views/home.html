@@ -1,0 +1,116 @@
+<div class="container" >
+<div class="row" ng-hide="isLoggedIn()">
+    <div class="col-lg-5" ng-controller="LoginController">
+        <form ng-submit="login()" name="loginForm" id="login-form" method="post" role="form" >
+            <div ng-class="{ 'has-success': !error['username'] && submitted,
+                'has-error': error['username'] && submitted }"
+                 class="form-group field-loginform-username required">
+                <label class="control-label" for="loginform-username">Username</label>
+                <input ng-model="userModel.username" type="text" id="loginform-username" class="form-control">
+                <p class="help-block help-block-error">{{ error['username'] }}</p>
+            </div>
+            <div ng-class="{ 'has-success': !error['password'] && submitted,
+                'has-error': error['password'] && submitted }"
+                 class="form-group field-loginform-password required">
+                <label class="control-label" for="loginform-password">Password</label>
+                <input ng-model="userModel.password" type="password" id="loginform-password" class="form-control">
+                <p class="help-block help-block-error">{{ error['password'] }}</p>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" name="login-button">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row" ng-show="isLoggedIn()">
+	<div class="col-lg-9" >
+	<div ng-show="adFilter" id="advancedFilter" class="card" style="margin-top:0px;">
+    <h3 class="card-header primary-color-dark white-text" style="margin:0px; padding:10px; font-size:1.1em;font-weight: 500;;"><span class="fa fa-search " aria-hidden="true" ></span> Advanced Filter</h3>
+    <div class="card-block" style="padding: 10px;">
+       <div class="row">
+       		<div class="col-lg-3" >
+       		Date Range
+       		</div>
+       		<div class="col-lg-3" >
+       		<div class="md-form">
+       			<label for="from">From:
+    			<input placeholder="Selected date" name="from" type="text" id="from" class="form-control datepicker">
+    			</label>
+			</div>
+       		 <div class="md-form">
+       		 <label for="to">To:
+    			<input placeholder="Selected date" type="text" name="to" id="to" class="form-control datepicker">
+    			</label>
+			</div>    
+       		
+       		</div>
+       		<div class="col-lg-3" >
+       		<label>Genre:</label>
+       		<select class="form-control" id="genre" name="genre">
+       			<option>Options</option>
+       		</select>
+       		<label>Sub Genre:</label>
+       		<select class="form-control" id="subGenre" name="subGenre">
+       			<option>Options</option>
+       		</select>
+       		</div>
+       </div>
+        <button class="btn btn-primary" ng-click="advancedSearch()">Search</button><button class="btn btn-primary" ng-click="advancedFilterClose()">Close </button>
+    </div>
+</div>
+		<table width="100%" class="table table-striped">
+			<thead class="thead-inverse primary-color-dark white-text" >
+			<tr>
+				<th><span class="fa fa-book " aria-hidden="true"></span> {{ dataTableTitle }}</th>
+			</tr>
+			</thead>
+			<tr id="el" ng-repeat="book in books.books" >
+				<td><span class="fa fa-bookmark teal-text" aria-hidden="true"></span> <a href="#/book/{{book.bookID}}">{{ book.Title }}</a>, <a href="#/author/{{book.authorID}}">{{ book.Author }}</a></td>
+			</tr>
+			<tfoot>
+				<tr>
+					<td>
+					Total Pages: {{totalPages}}
+						<nav id="pagination">
+						  <ul class="pagination">
+							  <li>
+							     
+							        <span  aria-label="First" ng-click="firstPage()" aria-hidden="true">&laquo;&laquo;</span>
+							     
+							    </li>
+							    <li>
+							  
+							        <span aria-label="Previous" ng-click="previousPage()" aria-hidden="true">&laquo;</span>
+							   
+							    </li>
+							    <li ng-repeat="page in pagination"><span ng-if="page.currentPage == page.page" class="active" ng-click="getData(page.page )">{{ page.page }}</span><span ng-if="page.currentPage != page.page" ng-click="getData(page.page )">{{ page.page }}</span></li>
+							
+							
+							    <li>
+							     
+							        <span  aria-label="Next" ng-click="nextPage()" aria-hidden="true">&raquo;</span>
+							     
+							    </li>
+							    <li>
+							     
+							        <span  aria-label="Last" ng-click="lastPage()" aria-hidden="true">&raquo;&raquo;</span>
+							     
+							  </li>
+						  </ul>
+						</nav>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+	<div class="col-lg-3">
+		<div class="row">
+		<hot-hot-list></hot-hot-list>
+
+		</div>
+		<div class="row">
+		<news></news>
+		</div>
+	</div>
+</div>
+</div>

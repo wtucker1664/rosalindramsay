@@ -1,0 +1,64 @@
+<div class="container" >
+<div class="row">
+	<div class="col-lg-9" >
+
+		<table width="100%" class="table table-striped">
+			<thead class="thead-inverse primary-color-dark white-text">
+			<tr>
+				<th colspan="2"><span class="fa fa-user" aria-hidden="true"></span> Author: {{ author.name }}</th>
+			</tr>
+			</thead>
+			<tr >
+				<td width="25%">
+					<div style="float: left;padding: 40px;border: 1px gray solid;width: 200px;height: 200px;" ng-if="author.img == ''">
+						<span style="font-size: 50px;padding: 40px;" class="fa fa-user"></span>
+					</div>
+				</td>
+				<td width="75%">
+					<div style="width:100%;height:200px;overflow-y: auto;">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed risus arcu. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut eget dui sit amet lectus fringilla suscipit quis eu mauris. Curabitur condimentum vulputate urna non tristique. Ut tempus consectetur nulla a consequat. Fusce laoreet lorem non hendrerit scelerisque. Aliquam id turpis diam.</p>
+
+<p>Vestibulum sem purus, malesuada eu lorem ut, vehicula efficitur tellus. Vestibulum tempor, erat eget varius scelerisque, elit lacus efficitur sem, nec vulputate libero metus vel justo. Donec nec mauris nibh. Duis sit amet enim at magna laoreet eleifend. Etiam venenatis dictum semper. Sed facilisis turpis sit amet tortor scelerisque, sed finibus dui tincidunt. Fusce nec eros non arcu elementum feugiat. Pellentesque vestibulum ante id sollicitudin ullamcorper. Ut eget luctus purus, ut auctor ex. Etiam vulputate interdum orci eget maximus. In sagittis in ligula nec sagittis. Curabitur lacus leo, facilisis eget blandit vel, rhoncus et dui.</p>
+
+<p>Quisque neque est, luctus quis eleifend id, egestas et nibh. In eu tellus sit amet magna rhoncus commodo quis in ligula. Praesent laoreet ligula sit amet velit bibendum auctor. Cras laoreet ut nunc vitae luctus. Aliquam commodo, enim ac interdum facilisis, erat enim semper augue, nec cursus neque lorem a mi. Duis rutrum accumsan vestibulum. Mauris luctus urna quis felis posuere blandit. Maecenas egestas at ligula a bibendum. Aliquam eu sagittis augue. Aliquam eu turpis porttitor, tristique ante sit amet, iaculis ligula. Nulla luctus dui ex, eget imperdiet elit lobortis in. Nulla facilisi. Fusce gravida libero eget dolor scelerisque commodo. Aliquam suscipit nulla a mi consectetur, ut malesuada libero sodales. Nam sollicitudin libero non lectus iaculis, quis aliquet mauris rutrum. Praesent pharetra ut tellus quis eleifend.</p>
+
+<p>Donec non magna massa. Ut dictum ultrices purus, a pretium ipsum imperdiet quis. Donec pulvinar iaculis porttitor. Mauris fringilla congue augue eget cursus. Aliquam accumsan cursus nibh, a blandit sapien rutrum non. Curabitur suscipit ipsum eu lectus placerat, vel feugiat ligula iaculis. Ut commodo lacinia eros, vel viverra tortor ullamcorper ut. Proin eleifend enim ac dictum sollicitudin. Phasellus non maximus erat. Nulla vestibulum ultricies est, euismod hendrerit neque lacinia vitae. Maecenas aliquam luctus sodales. Vestibulum mollis, felis nec viverra vestibulum, mi nisi laoreet libero, vitae gravida velit lorem congue diam. Quisque pellentesque ante et rhoncus pellentesque. Nam at neque lacus.</p>
+
+<p>Nunc ac dui ac metus pretium iaculis. Suspendisse potenti. Mauris vel magna ultrices, finibus ipsum vitae, congue metus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce eleifend ut dui nec finibus. Donec convallis sed mi vel imperdiet. Phasellus ac felis sit amet risus egestas tincidunt commodo aliquam nisl. Maecenas vel orci sem. Maecenas et malesuada nisl. Aliquam malesuada dictum urna, eget pretium enim elementum sit amet. Aenean eu blandit justo.</p>
+					
+					</div>
+				</td>
+			</tr>
+			<tfoot class="primary-color-dark white-text">
+				<th colspan="2"><span class="fa fa-link" aria-hidden="true"></span> Website: {{author.weblink}}
+			</tfoot>
+		</table>
+	
+
+					<table width="100%" class="table table-striped">
+			<thead class="thead-inverse primary-color-dark white-text">
+			<tr>
+				<th><span class="fa fa-book" aria-hidden="true"></span> Titles</th>
+			</tr>
+			</thead>
+			<tr ng-repeat="book in books">
+				<td><span class="fa fa-bookmark teal-text" aria-hidden="true"></span> <a href="#/book/{{book.bookID}}">{{ book.Title }}</a></td>
+
+			</tr>
+
+		</table>
+			
+
+		
+		
+	</div>
+	<div class="col-lg-3">
+		<div class="row">
+		<hot-hot-list></hot-hot-list>
+		</div>
+		<div class="row">
+		<news></news>
+		</div>
+	</div>
+</div>
+</div>

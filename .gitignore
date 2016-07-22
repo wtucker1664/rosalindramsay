@@ -1,0 +1,5 @@
+.svn
+.project
+.buildpath
+.settings
+basic/composer.lock
